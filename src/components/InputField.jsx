@@ -4,7 +4,7 @@ const InputField = () => {
   return (
     <div>
       <form>
-        <div class="mb-3">
+        <div className="mb-3">
           <input
             type="email"
             className="input-field"

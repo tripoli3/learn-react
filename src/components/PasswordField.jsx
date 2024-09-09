@@ -4,9 +4,9 @@ const PasswordField = () => {
   return (
     <div>
       <form>
-        <div class="mb-3">
+        <div className="mb-3">
           <input
-            type="password"
+            type="new-password"
             className="input-field"
             placeholder="Password"
           ></input>

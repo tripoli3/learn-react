@@ -114,6 +114,7 @@ function App() {
     <>
       <div>
         <Card />
+        <Card />
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-import { findAllByTestId } from '@testing-library/react';
+import Card from './components/Card';
 
 function App() {
   //logic
@@ -55,8 +55,68 @@ function App() {
   //   console.log('관리자 페이지에 접근이 가능합니다');
   // }
 
+  //Default parameter
+  // 함수 정의
+  const greeting = (input = '고객') => {
+    return `${input}님, 반갑습니다!`;
+  };
+
+  // 함수 호출
+  greeting('김현호');
+  console.log('greeting', greeting('나미'));
+
+  // 배열 구조분해 할당
+  const clothList = ['tshirt', '반바지'];
+  const [firstCloth, secondCloth, thirdCloth = 'shirt'] = clothList;
+
+  const addCloth = () => {
+    const addClothList = [...clothList, '코트'];
+    console.log('🚀 ~ App ~ addClothListClothList:', addClothList);
+  };
+
+  addCloth();
+
+  console.log('🚀 ~ App ~ firstCloth:', firstCloth);
+  console.log('🚀 ~ App ~ secondCloth:', secondCloth);
+  console.log('🚀 ~ App ~ thirdCloth:', thirdCloth);
+
+  // 객체 구조분해 할당
+  const person = {
+    name: '후츠릿',
+    age: 34,
+    email: 'chutzrit@gmail.com',
+  };
+
+  // <원래함수>
+  // const name = person.name;
+  // const age = person.age;
+  // const email = person.email;
+
+  const { name: personName, age, email } = person;
+  console.log('🚀 ~ App ~ name:', personName);
+  console.log('🚀 ~ App ~ age:', age);
+  console.log('🚀 ~ App ~ email:', email);
+
+  //name값 변경
+  const addName = () => {
+    const addNameList = { ...person, name: '정세헌' };
+    console.log('🚀 ~ addName ~ addNameList:', addNameList);
+  };
+
+  addName();
+
+  // cosnt addStudent =() =>{
+  //   studentList.push('장현재')
+  // }
+
   //view
-  return <div>Hello World</div>;
+  return (
+    <>
+      <div>
+        <Card />
+      </div>
+    </>
+  );
 }
 
 export default App;

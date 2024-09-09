@@ -1,4 +1,4 @@
-import Card from './components/Card';
+import Login from './pages/Login';
 
 function App() {
   //logic
@@ -112,9 +112,10 @@ function App() {
   //view
   return (
     <>
-      <div>
-        <Card />
-        <Card />
+      <div className="app">
+        {/* <Card />
+        <Card /> */}
+        <Login />
       </div>
     </>
   );

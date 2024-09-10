@@ -1,4 +1,6 @@
 import Counter from './components/Counter';
+import Card from './components/Card';
+import { useState } from 'react';
 
 function App() {
   //logic
@@ -109,14 +111,31 @@ function App() {
   //   studentList.push('장현재')
   // }
 
+  const [title, setTitle] = useState('초기타이틀');
+
+  const handleClick = () => {
+    window.location.href = 'https://www.naver.com/';
+  };
+
   //view
   return (
     <>
       <div className="app">
-        {/* <Card />
-        <Card /> */}
+        <Card
+          title={title}
+          subText="후츠릿 짱"
+          onCardButtonClick={handleClick}
+        />
+        <Card
+          title="초대장"
+          subText="초대합니다"
+          onCardButtonClick={handleClick}
+        />
+        <button type="button" onClick={() => setTitle('변경했습니다')}>
+          title변경
+        </button>
         {/* <Login /> */}
-        <Counter />
+        {/* <Counter /> */}
       </div>
     </>
   );

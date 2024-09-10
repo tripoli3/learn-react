@@ -1,10 +1,11 @@
 import React from 'react';
 
-const LoginButton = () => {
+const LoginButton = ({ text, isSocial = false, onClick }) => {
+  const className = isSocial ? 'social-login-button' : 'login-button';
   return (
     <div>
-      <button className="login-button" type="button">
-        Login
+      <button className={className} type="button" onClick={onClick}>
+        {text}
       </button>
     </div>
   );

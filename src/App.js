@@ -1,6 +1,7 @@
 import Counter from './components/Counter';
 import Card from './components/Card';
 import { useState } from 'react';
+import Login from './pages/Login';
 
 function App() {
   //logic
@@ -121,7 +122,7 @@ function App() {
   return (
     <>
       <div className="app">
-        <Card
+        {/* <Card
           title={title}
           subText="후츠릿 짱"
           onCardButtonClick={handleClick}
@@ -133,9 +134,9 @@ function App() {
         />
         <button type="button" onClick={() => setTitle('변경했습니다')}>
           title변경
-        </button>
+        </button> */}
         {/* <Login /> */}
-        {/* <Counter /> */}
+        <Counter />
       </div>
     </>
   );

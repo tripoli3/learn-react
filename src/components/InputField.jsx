@@ -1,18 +1,8 @@
 import React from 'react';
 
-const InputField = () => {
+const InputField = ({ type, placeholder }) => {
   return (
-    <div>
-      <form>
-        <div className="mb-3">
-          <input
-            type="email"
-            className="input-field"
-            placeholder="Email"
-          ></input>
-        </div>
-      </form>
-    </div>
+    <input type={type} placeholder={placeholder} className="input-field" />
   );
 };
 

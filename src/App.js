@@ -1,4 +1,4 @@
-import Login from './pages/Login';
+import Counter from './components/Counter';
 
 function App() {
   //logic
@@ -115,7 +115,8 @@ function App() {
       <div className="app">
         {/* <Card />
         <Card /> */}
-        <Login />
+        {/* <Login /> */}
+        <Counter />
       </div>
     </>
   );

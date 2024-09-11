@@ -117,3 +117,17 @@ body {
   text-align: center;
   margin: 10px 0;
 }
+
+.wrap {
+  height: 100vh;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+
+.light-mode {
+  background-color: #fff;
+  color: #333;
+}

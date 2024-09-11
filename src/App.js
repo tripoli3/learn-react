@@ -1,7 +1,8 @@
 import Counter from './components/Counter';
 import Card from './components/Card';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Login from './pages/Login';
+import ThemeButton from './components/ThemeButton';
 
 function App() {
   //logic
@@ -118,11 +119,49 @@ function App() {
     window.location.href = 'https://www.naver.com/';
   };
 
+  // 모드 변경 논리
+  /**
+  1. ThemeButton에 온클릭 이벤트를 만든다
+  2. 버튼이 눌려졌다는 이벤트를 부모 컴포넌트에 전송한다.(onTheme)
+  3. 부모 컴포넌트가 이벤트를 받으면 div 클래스를 변환하는 함수를 생성한다.(handleTheme)
+  4. [state] isDarkMode라는 state를 생성한다.
+  5. isDarkMode state에 따라 wrap클래스가 있는 div에 className의 속성을 다르게 넣어준다.
+  5-1.다크모드인 경우엔 'dark-mode'라는 클래스를 준다.
+  5-2. 다크모드가 아닌 경우엔 'light-mode'라는 클래스를 준다.
+  6. handleTheme함수에서 isDarkMode의 값을 토글로 변경해준다.
+  7. ThemeButton컴포넌트에 isDarkMode라는 props를 내려준다.
+  7-1. 이 props에는 isDarkMode의 값을 넣어준다.
+  8. ThemeButton컴포넌트에 isDarkMode의 값을 받아서 true인 경우엔 '다크 모드' false인 경우엔 '라이트 모드'라는 텍스트를 UI에 보여준다.
+
+  9. 버튼을 클릭한다.
+  10. 작동이 잘 되는지 바뀌는걸 확인한다.
+   */
+
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  const handleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  const [isLoggedIn] = useState(true);
+
+  const [message] = useState([
+    {
+      id: 1,
+      text: '첫번째 메세지',
+    },
+  ]);
+
+  useEffect(() => {
+    console.log(isDarkMode ? '다크모드' : '라이트모드');
+    alert(isDarkMode ? '다크모드' : '라이트모드');
+  }, [isDarkMode]);
+
   //view
   return (
     <>
-      <div className="app">
-        {/* <Card
+      <div className={`wrap ${isDarkMode ? 'dark-mode' : 'light-mode'}`}>
+        <Card
           title={title}
           subText="후츠릿 짱"
           onCardButtonClick={handleClick}
@@ -132,11 +171,16 @@ function App() {
           subText="초대합니다"
           onCardButtonClick={handleClick}
         />
-        <button type="button" onClick={() => setTitle('변경했습니다')}>
+        <ThemeButton isDarkMode={isDarkMode} onTheme={handleTheme} />
+        {/* <button type="buttosn" onClick={() => setTitle('변경했습니다')}>
           title변경
         </button> */}
         {/* <Login /> */}
-        <Counter />
+        {/* <Counter /> */}
+        {isLoggedIn ? <h2>환영합니다</h2> : <h2>로그인해주세요</h2>};
+        {message.length && (
+          <h2>새로운 메세지가 {message.length} 개 있습니다</h2>
+        )}
       </div>
     </>
   );
